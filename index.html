@@ -3,9 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Tea house project</title>
+        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+        <link rel="stylesheet" href="https://cdn.lineicons.com/5.0/lineicons.css" />
+        <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    
+<body class="manrope">
+    <main id="main-container" class=" w-[80dvw] pt-3rem my-[3rem] mx-auto">
+        <section class="banner flex gap-[2rem] w-full">
+            <div class="banner-text flex-1/2 justify-between items-center">
+                <h1 class="font-xl font-extrabold">It's good tea time at The Tea House</h1>
+                <p class="leading-[1.7rem] dark-3 my-[2dvh]">Tea and Botanical Solutions Supplier Give Optimum Satisfaction <br> To Your Taste Buds.</p>
+                <button type="button" id="orange-btn" class="orange-btn my-[2dvh]">Explore More <i class="lni lni-arrow-angular-top-right"></i></button>
+            </div>
+            <div class="banner-img flex-1/2 relative">
+                <img src="./tea-house-resources/images/banner.png" alt="banner-image" class="w-full">
+                <img src="./tea-house-resources/images/Screenshot 2025-08-17 213655.png" alt="rating" 
+                     class="absolute bottom-[50px] left-[30px]">
+            </div>
+        </section>
+        <input type="checkbox" name="toggle" id="toggle" class=" my-[3dvh] mx-[0.5rem]"> 
+        <label for="toggle">Check this for transition</label>
+
+        <section id="comment-box" class="my-5dvh mx-auto">
+            <p class="comments">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sint architecto labore provident necessitatibus? Fuga ratione soluta blanditiis esse iure earum?</p>
+            <p class="comments">At autem incidunt voluptatibus ratione ex accusantium, eos ipsam consequatur tempora dolores ab rem aut illum eum earum fugit placeat.</p>
+            <p class="comments">Autem hic sunt nihil doloribus placeat animi, eius impedit rem accusamus minus ut quas dolor, nobis ab consequatur, dignissimos veritatis.</p>
+
+        </section>
+        <textarea name="comment-text" id="comment-text-area" cols="60" rows="5"
+         class="border-2 border-green-500 focus:border-green-300 rounded-[10px] outline-none px-1 resize-none "
+         placeholder="write your comment here...">
+        </textarea>
+        <br>
+        <button type="submit" id="submit-btn" class="orange-btn">Submit</button>
+    </main>
 </body>
+<script src="logic.js"></script>
 </html>
