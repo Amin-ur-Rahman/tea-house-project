@@ -155,11 +155,17 @@ const max = 100;
 const min = 50;
 let numOfGuess = 10;
 let previousGuesses = [];
+let gameOver = false;
 const randomNum = Math.ceil(Math.random() * (max - min) + min);
 console.log(randomNum);
 console.log(typeof randomNum);
 
 matchButton.addEventListener("click", () => {
+  if (gameOver) {
+    previousGuessList.innerHTML = "";
+    remainingGuesses.innerHTML = "";
+    return;
+  }
   const playersGuess = parseInt(document.getElementById("guess").value);
   // console.log(typeof playersGuess);
 
@@ -167,15 +173,23 @@ matchButton.addEventListener("click", () => {
   previousGuesses.push(playersGuess);
   previousGuessList.innerHTML = `previously guessed numbers: ${previousGuesses}`;
   remainingGuesses.innerHTML = `Number of attempts remaining: ${numOfGuess}`;
-
   if (randomNum === playersGuess) {
     console.log("hello world");
 
     bingo.innerText = `Bingo! you guessed it correctly the correct number was: ${randomNum}`;
-  } else if (randomNum > playersGuess) {
-    bingo.innerText = "The number is bigger than you thought, increase a bit";
-  } else if (randomNum < playersGuess) {
-    bingo.innerText = "The number is smaller than you thought, decrease a bit";
+  } else {
+    randomNum > playersGuess
+      ? (bingo.innerText =
+          "The number is bigger than you thought, increase a bit")
+      : (bingo.innerText =
+          "The number is smaller than you thought, decrease a bit");
   }
+
+  if (numOfGuess < 1) {
+    bingo.innerHTML = `you have run out of lifelines, reload the game`;
+    // matchButton.style.display = "none";
+    gameOver = true;
+  }
+
   document.getElementById("guess").value = "";
 });
