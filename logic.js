@@ -102,19 +102,45 @@ buttons.forEach((button) => {
 
 const calcBtn = document.getElementById("calc-btn");
 const resultBlock = document.getElementById("result-block");
+const feedback = document.getElementById("feedback");
+
 calcBtn.addEventListener("click", () => {
   let height = parseInt(document.getElementById("height").value);
   let weight = parseInt(document.getElementById("weight").value);
 
   if (!isNaN(height) && !isNaN(weight)) {
-    const result = (weight / ((height * height) / 10000)).toFixed(2);
+    const result = parseFloat(
+      (weight / ((height * height) / 10000)).toFixed(2)
+    );
     // resultBlock.appendChild(document.createTextNode(`Your BMI is: ${result}`));
     resultBlock.innerText = `Your BMI is: ${result}`;
     document.getElementById("height").value = "";
     document.getElementById("weight").value = "";
     resultBlock.style.color = "green";
+    if (result < 18.5) {
+      feedback.innerText = `You need to eat more`;
+    } else if (result > 30) {
+      feedback.innerText = `You are spreading out, stop eating`;
+    } else if (result < 30 && result >= 25) {
+      feedback.innerText = `Be careful, you're getting fat`;
+    } else if (result >= 18.5 && result < 25) {
+      feedback.innerText = `You are fit, keep it up`;
+    }
   } else {
     resultBlock.innerText = `Please enter valid info!`;
     resultBlock.style.color = "red";
+    feedback.innerText = "";
   }
 });
+
+// digital clock
+
+const timeBlock = document.getElementById("time-block");
+console.log(timeBlock);
+
+setInterval(function () {
+  const time = new Date();
+  const localTime = time.toLocaleTimeString();
+
+  timeBlock.innerText = localTime;
+}, 1000);
