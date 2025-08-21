@@ -69,4 +69,22 @@
   .items {
     margin-left: 20px;
   }
+  .linear-green {
+    background: linear-gradient(
+      to right,
+      rgba(56, 255, 109, 0.25),
+      rgba(0, 255, 255, 0.25)
+    );
+  }
+  .input-box {
+    transition: all 400ms ease-in;
+    padding: 0.5rem;
+    margin-block-end: 4dvh;
+    margin-block-start: 0.5rem;
+    font-family: "JetBrains Mono";
+  }
+  .input-box:hover {
+    transform: scale(1.05);
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.25);
+  }
 }

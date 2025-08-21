@@ -87,7 +87,7 @@ while (nextItem) {
 }
 
 const buttons = document.querySelectorAll(".button");
-const body = document.getElementById("body");
+const body = document.body;
 
 buttons.forEach((button) => {
   button.addEventListener("click", (e) => {
@@ -96,4 +96,22 @@ buttons.forEach((button) => {
 
     body.setAttribute("class", colorId);
   });
+});
+
+// BMI calculator-------------------------
+
+const calcBtn = document.getElementById("calc-btn");
+const resultBlock = document.getElementById("result-block");
+calcBtn.addEventListener("click", () => {
+  const height = parseInt(document.getElementById("height").value);
+  const weight = parseInt(document.getElementById("weight").value);
+
+  if (!isNaN(height) && !isNaN(weight)) {
+    const result = (weight / ((height * height) / 10000)).toFixed(2);
+    resultBlock.appendChild(document.createTextNode(`Your BMI is: ${result}`));
+  } else {
+    resultBlock.appendChild(
+      document.createTextNode(`Please enter valid info!`)
+    );
+  }
 });

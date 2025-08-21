@@ -93,13 +93,13 @@
         Create new element
       </button>
 
-      <div class="my-[5dvh] w-max mx-auto">
+      <div id="theme-changer" class="my-[5dvh] w-max mx-auto">
         <span
-          class="button w-[100px] inline-block cursor-pointer mx-[0.5rem] rounded h-[100px] border-none bg-blue-400"
+          class="button w-[100px] inline-block cursor-pointer mx-[0.5rem] rounded h-[100px] border-none bg-blue-300"
           id="bg-blue-300"
         ></span>
         <span
-          class="button w-[100px] inline-block cursor-pointer mx-[0.5rem] rounded h-[100px] border-none bg-gray-400"
+          class="button w-[100px] inline-block cursor-pointer mx-[0.5rem] rounded h-[100px] border-none bg-gray-5700"
           id="bg-gray-500"
         >
         </span>
@@ -112,6 +112,35 @@
           id="bg-yellow-200"
         ></span>
       </div>
+
+      <form id="bmi-calculator">
+        <h3 class="manrope font-m font-bold my-[3dvh]">
+          Input your height and wieght info to know your BMI
+        </h3>
+        <label for="height" class="block font-bold italic"
+          >Height (in CM):</label
+        >
+        <input
+          type="number"
+          id="height"
+          class="input-box border-green-500 border-2 rounded-[5px] focus:outline-0 linear-green block"
+        />
+        <label for="weight" class="block font-bold italic"
+          >Weight (in KG):</label
+        >
+        <input
+          type="number"
+          id="weight"
+          class="input-box border-green-500 border-2 rounded-[5px] focus:outline-0 linear-green block"
+        />
+
+        <button type="button" id="calc-btn" class="orange-btn">
+          Calculate
+        </button>
+
+        <div id="warning" class="italic font-semibold"></div>
+        <div id="result-block" class="font-bold text-green-600 my-5"></div>
+      </form>
     </main>
   </body>
   <script src="logic.js"></script>
