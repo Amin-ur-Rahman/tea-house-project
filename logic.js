@@ -144,3 +144,38 @@ setInterval(function () {
 
   timeBlock.innerText = localTime;
 }, 1000);
+
+// number guessing game
+
+const matchButton = document.getElementById("num-match-btn");
+const bingo = document.getElementById("bingo");
+const remainingGuesses = document.getElementById("remainingGuesses");
+const previousGuessList = document.getElementById("previousGuessList");
+const max = 100;
+const min = 50;
+let numOfGuess = 10;
+let previousGuesses = [];
+const randomNum = Math.ceil(Math.random() * (max - min) + min);
+console.log(randomNum);
+console.log(typeof randomNum);
+
+matchButton.addEventListener("click", () => {
+  const playersGuess = parseInt(document.getElementById("guess").value);
+  // console.log(typeof playersGuess);
+
+  numOfGuess--;
+  previousGuesses.push(playersGuess);
+  previousGuessList.innerHTML = `previously guessed numbers: ${previousGuesses}`;
+  remainingGuesses.innerHTML = `Number of attempts remaining: ${numOfGuess}`;
+
+  if (randomNum === playersGuess) {
+    console.log("hello world");
+
+    bingo.innerText = `Bingo! you guessed it correctly the correct number was: ${randomNum}`;
+  } else if (randomNum > playersGuess) {
+    bingo.innerText = "The number is bigger than you thought, increase a bit";
+  } else if (randomNum < playersGuess) {
+    bingo.innerText = "The number is smaller than you thought, decrease a bit";
+  }
+  document.getElementById("guess").value = "";
+});

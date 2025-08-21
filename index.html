@@ -191,6 +191,40 @@
           class="linear-green w-fit h-auto px-[20px] py-[15px] font-l font-bold rounded-[10px] font-mono"
         ></div>
       </section>
+
+      <!-- number guessing game -->
+
+      <section
+        id="game-section"
+        class="flex flex-col justify-center items-center"
+      >
+        <h3 class="manrope font-m font-bold my-[2dvh] mb-5">
+          A Game Number Guessing Game: Try Your Luck-
+        </h3>
+        <label for="height" class="block font-bold italic"
+          >Input a number between 50 - 100:</label
+        >
+
+        <input
+          type="input"
+          id="guess"
+          class="input-box border-green-500 border-2 rounded-[5px] focus:outline-0 linear-green"
+        />
+
+        <button type="button" id="num-match-btn" class="orange-btn mb-5">
+          Submit
+        </button>
+
+        <div
+          id="previousGuessList"
+          class="font-semibold italic text-yellow-600"
+        ></div>
+        <div id="remainingGuesses" class="font-semibold text-cyan-600"></div>
+        <div
+          id="bingo"
+          class="font-semibold linear-green rounded p-[10px] w-max text-red-600"
+        ></div>
+      </section>
     </main>
   </body>
   <script src="logic.js"></script>
