@@ -103,15 +103,18 @@ buttons.forEach((button) => {
 const calcBtn = document.getElementById("calc-btn");
 const resultBlock = document.getElementById("result-block");
 calcBtn.addEventListener("click", () => {
-  const height = parseInt(document.getElementById("height").value);
-  const weight = parseInt(document.getElementById("weight").value);
+  let height = parseInt(document.getElementById("height").value);
+  let weight = parseInt(document.getElementById("weight").value);
 
   if (!isNaN(height) && !isNaN(weight)) {
     const result = (weight / ((height * height) / 10000)).toFixed(2);
-    resultBlock.appendChild(document.createTextNode(`Your BMI is: ${result}`));
+    // resultBlock.appendChild(document.createTextNode(`Your BMI is: ${result}`));
+    resultBlock.innerText = `Your BMI is: ${result}`;
+    document.getElementById("height").value = "";
+    document.getElementById("weight").value = "";
+    resultBlock.style.color = "green";
   } else {
-    resultBlock.appendChild(
-      document.createTextNode(`Please enter valid info!`)
-    );
+    resultBlock.innerText = `Please enter valid info!`;
+    resultBlock.style.color = "red";
   }
 });
