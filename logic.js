@@ -193,3 +193,6 @@ matchButton.addEventListener("click", () => {
 
   document.getElementById("guess").value = "";
 });
+
+console.log("gitHub workflow add");
+
